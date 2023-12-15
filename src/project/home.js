@@ -9,12 +9,14 @@ function Home() {
   const [favorites, setFavorites] = useState(null);
 
   const fetchFavorites = async () => {
-    try {
-      const favorites = await favClient.findVideosThatUserFavorited(currentUser._id);
-      setFavorites(favorites);
-    }
-    catch (err){
-      console.log(err);
+    if (currentUser){
+      try {
+        const favorites = await favClient.findVideosThatUserFavorited(currentUser._id);
+        setFavorites(favorites);
+      }
+      catch (err){
+        console.log(err);
+      }
     }
   };
 
