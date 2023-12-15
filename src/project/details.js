@@ -90,7 +90,7 @@ function Details() {
   }
 
   const fetchPlaylists = async () => {
-    if (currentUser._id){
+    if (currentUser){
       try {
         const playlists = await playlistClient.fetchPlaylistById(currentUser._id);
         setPlaylists(playlists);
@@ -132,48 +132,49 @@ function Details() {
     <div>
       {video && (
         <div className="container mt-3">
-          <div className="row row-cols-auto justify-content-end">
-            <div className="col align-self-start">
-              {success && <div className="alert alert-success py-2">{success}</div>}
-            </div>
-            <div className="col px-1"> 
-              <input
-                onChange={(e) =>
-                  setNewPlaylist(e.target.value)
-                }
-                value={newPlaylist}
-                type="newPlaylist"
-                placeholder={"Enter the name of your new playlist here"}
-                className="form-control"
-              />
-            </div>
+          {currentUser && (
+            <div className="row row-cols-auto justify-content-end">
+              <div className="col align-self-start">
+                {success && <div className="alert alert-success py-2">{success}</div>}
+              </div>
+              <div className="col px-1"> 
+                <input
+                  onChange={(e) =>
+                    setNewPlaylist(e.target.value)
+                  }
+                  value={newPlaylist}
+                  type="newPlaylist"
+                  placeholder={"Enter the name of your new playlist here"}
+                  className="form-control"
+                />
+              </div>
 
-            <div className="col px-1"> 
-              <select className="form-select" onChange={(e) => {selectButton(e.target.value);}}>
-                <option selected disabled>Add to playlist</option>
-                {playlists && playlists.map((playlist) => (
-                  <option value={playlist._id}>
-                    {playlist.name}
+              <div className="col px-1"> 
+                <select className="form-select" onChange={(e) => {selectButton(e.target.value);}}>
+                  <option selected disabled>Add to playlist</option>
+                  {playlists && playlists.map((playlist) => (
+                    <option value={playlist._id}>
+                      {playlist.name}
+                    </option>
+                  ))}
+                  <option value={false}>
+                    Add to new playlist
                   </option>
-                ))}
-                <option value={false}>
-                  Add to new playlist
-                </option>
-              </select>
+                </select>
+              </div>
+
+              <div className="col ps-1">
+                <button
+                  onClick={buttonFavoriteClick}
+                  className="btn btn-warning mb-2"
+                >
+                  {buttonText}
+                </button>
+              </div>
+
+
             </div>
-
-            <div className="col ps-1">
-              {currentUser && 
-              (<button
-                onClick={buttonFavoriteClick}
-                className="btn btn-warning mb-2"
-              >
-                {buttonText}
-              </button>)}
-            </div>
-
-
-          </div>
+          )}
           <Link to={`https://www.youtube.com/watch?v=${videoId}`}>
           <div className="wd-vid-container px-0">
             <img
