@@ -11,6 +11,7 @@ import * as client from "./client";
 import * as filepaths from "../constants/filepaths";
 import { useDispatch, useSelector } from "react-redux";
 import { setCurrentUser } from "./reducer";
+import "../styles.css";
 
 function UserTable() {
   const { currentUser } = useSelector((state) => state.userReducer);

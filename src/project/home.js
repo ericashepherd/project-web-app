@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import * as favClient from "./favorites/client";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import "./styles.css";
 
 function Home() {
   const { currentUser } = useSelector((state) => state.userReducer);

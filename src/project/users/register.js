@@ -4,6 +4,7 @@ import * as client from "./client";
 import * as filepaths from "../constants/filepaths";
 import { useDispatch } from "react-redux";
 import { setCurrentUser } from "./reducer";
+import "../styles.css";
 
 function Register() {
   const [error, setError] = useState("");

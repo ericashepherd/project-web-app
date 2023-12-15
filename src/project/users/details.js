@@ -4,6 +4,7 @@ import * as client from "./client";
 import * as favClient from "../favorites/client";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import "../styles.css";
 
 function UserDetails() {
   const [user, setUser] = useState(null);

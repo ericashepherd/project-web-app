@@ -8,9 +8,7 @@ import * as playlistClient from "../playlists/client";
 import * as videoClient from "../videos/client";
 import { useDispatch, useSelector } from "react-redux";
 import { setCurrentUser } from "./reducer";
-import "./index.css";
 import "../styles.css";
-import { current } from "@reduxjs/toolkit";
 
 function Profile() {
   const [profile, setProfile] = useState(null);
