@@ -35,6 +35,8 @@ function UserDetails() {
 
   return (
     <div>
+      {console.log(id)}
+      {console.log(user)}
       <br/>
       {(!currentUser || currentUser._id !== id) && (
         <div className="wd-gray">
