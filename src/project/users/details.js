@@ -61,6 +61,7 @@ function UserDetails() {
           }
         </div>
         
+      {((currentUser) && (
         <div className="col me-3 wd-borders">
           <h2 className="wd-seagreen">Favorited Video List</h2>
           <div className="list-group">
@@ -75,7 +76,7 @@ function UserDetails() {
             ))}
           </div>
         </div>
-
+      ))}
       </div>
 
       <br/><hr className="wd-seagreen"/><br/>

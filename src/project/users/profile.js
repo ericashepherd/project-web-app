@@ -43,7 +43,7 @@ function Profile() {
   };
 
   const fetchFavorites = async () => {
-    if (currentUser._id){
+    if (currentUser){
       try {
         const favorites = await favClient.findVideosThatUserFavorited(currentUser._id);
         setFavorites(favorites);
@@ -55,7 +55,7 @@ function Profile() {
   };
 
   const fetchPlaylists = async () => {
-    if (currentUser._id){
+    if (currentUser){
       try {
         const playlists = await playlistClient.fetchPlaylistById(currentUser._id);
         setPlaylists(playlists);
@@ -68,7 +68,7 @@ function Profile() {
   };
 
   const fetchVideoTitle = async () => {
-    if (currentUser._id && playlistVids){
+    if (currentUser && playlistVids){
       try{
         const videoInfo = await Promise.all(
           playlistVids.map(async (vid) => await client.findVideoById(vid.videoId)
