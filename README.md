@@ -1,3 +1,7 @@
+# UML Diagram
+![image](https://github.com/ericashepherd/project-web-app/assets/98191751/ac6f7d67-a188-44cf-803a-95888d0ed5d6)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
