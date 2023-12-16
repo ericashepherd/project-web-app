@@ -53,19 +53,23 @@ function UserDetails() {
           <h2 className="wd-seagreen">User Details</h2>
           <hr className="wd-seagreen"/>
           <p>Username: {user.username}</p>
-          {(currentUser._id === id ||
-          currentUser.role==="ADMIN"||currentUser.role==="FACULTY"
-          || currentUser.role==="STUDENT") &&
-          (
-            <p>Email: {user.email}</p>
-          )}
-          {(currentUser) && (<p>First Name: {user.firstName}</p>)}
-          {(currentUser) && (<p>Last Name: {user.lastName}</p>)}
-          {
-          (currentUser.role==="ADMIN"||currentUser.role==="FACULTY")
-          && 
-          (<p>Role: {user.role}</p>)
-          }
+
+          {(currentUser) && 
+          (<div>
+              {(currentUser._id === id ||
+            currentUser.role==="ADMIN"||currentUser.role==="FACULTY"
+            || currentUser.role==="STUDENT") &&
+            (
+              <p>Email: {user.email}</p>
+            )}
+            <p>First Name: {user.firstName}</p>
+            <p>Last Name: {user.lastName}</p>
+            {
+            (currentUser.role==="ADMIN"||currentUser.role==="FACULTY")
+            && 
+            (<p>Role: {user.role}</p>)
+            }
+          </div>)}
         </div>
         
       {((currentUser) && (
