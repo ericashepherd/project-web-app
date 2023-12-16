@@ -24,8 +24,13 @@ function UserDetails() {
   };
 
   const fetchUser = async () => {
-    const user = await client.findUserById(id);
-    setUser(user);
+    try{
+      const user = await client.findUserById(id);
+      setUser(user);
+    }
+    catch(err){
+      console.log(err);
+    }
   };
 
   useEffect(() => {
@@ -35,8 +40,8 @@ function UserDetails() {
 
   return (
     <div>
-      {console.log(id)}
-      {console.log(user)}
+    {user && (
+    <div>
       <br/>
       {(!currentUser || currentUser._id !== id) && (
         <div className="wd-gray">
@@ -83,7 +88,8 @@ function UserDetails() {
 
       <br/><hr className="wd-seagreen"/><br/>
     </div>
-    
+    )}
+    </div>
   );
 }
 
